@@ -15,6 +15,14 @@
     src: url("font/Gotham-Bold.otf") format("opentype");
 }
 @font-face {
+    font-family: Gotham_Bold_Italic;
+    src: url("font/GothamBoldItalic.ttf") format("truetype");
+}
+@font-face {
+    font-family: Gotham_Book_Italic;
+    src: url("font/Gotham-BookItalic.otf") format("opentype");
+}
+@font-face {
     font-family: Gill_Sans_Bold;
     src: url("font/Gill_Sans_Bold.otf") format("opentype");
 }
@@ -34,7 +42,7 @@ $white_color:#fff;
 $ch_family:'Noto Sans TC',  sans-serif;
 $en_family:'Gill_Sans_Heavy', sans-serif;
 
-h1,h2,h3,h4,h5,h6,a,p,span,b,div{
+h1,h2,h3,h4,h5,h6,a,p,span,b,div,input,textarea{
     font-family: 'Noto Sans TC',  sans-serif;
 }
 
@@ -64,6 +72,14 @@ body{
     }
     &.i-center{
         align-items: center;
+    }
+
+    &.flex-row{
+        flex-direction: row;
+    }
+
+    &.flex-column{
+        flex-direction:column;
     }
 }
 

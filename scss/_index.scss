@@ -538,11 +538,57 @@
             column-gap: $gap;
 
             .item{
+                position: relative;
                 margin-bottom: $gap;
+                overflow: hidden;
                 a{
                     display: block;
                 }
+
+                .car_txt{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    flex-direction: column;
+                    background-color: rgb(0 128 197 / 90%);
+                    pointer-events: none;
+                    z-index: 10;
+
+                    opacity: 0;
+
+                    h3{
+                        color: #fff;
+                        margin: 0;
+                        margin-bottom: .4vw;
+                        font-size: 1.4vw;
+                        font-weight: 800;
+                        letter-spacing: 0.1vw;
+                    }
+                    p{
+                        color: #fff;
+                        margin: 0;
+                        margin-bottom: 1vw;
+                        font-size: 0.9vw;
+                        letter-spacing: 0.1vw;
+                        span{
+                            border-right: 1px solid #fff;
+                            padding: 0 0.5vw;
+                            line-height: 1;
+                            display: inline-block;
+
+                            &:last-of-type{
+                                border:none;
+                            }
+                        }
+                    }
+
+                    .adv_icon{
+                        width: 30px;
+                        transform: rotate(180deg);
+                    }
+                }
             }
+ 
         }
 
         .bg_square{
@@ -691,7 +737,7 @@
 
             .adv_item{
                 position: relative;
-                border-radius: 10px;
+                border-radius: 6px;
                 overflow: hidden;
                 a{
                     display: block;
@@ -705,43 +751,51 @@
                     background-color: rgb(0 128 197 / 90%);
                     pointer-events: none;
 
-                    opacity: 0;
+                     opacity: 0;
+
+                    &.sp{
+                        flex-direction: row;
+                    }
 
                     h2{
-                        margin: 0;
+                        margin: 0 1vw;
                         font-size: 7.5vw;
-                        letter-spacing: -0.6vw;
+                        letter-spacing: -0.3vw;
                         line-height: 1.1;
                         font-style: italic;
                         color: rgb(255 255 255 / 40%);
-
-                        opacity: 0;
                     }
-                    h4{
-                        margin: 0;
-                        font-size: 1.3vw;
-                        font-weight: 500;
-                        color: #fff;
-                        letter-spacing: 0.3vw;
+                    
 
-                        opacity: 0;
-                    }
-                    p{
-                        margin: 0;
-                        color: #fff;
-                        font-size: 0.9vw;
-                        margin-top: 0.2vw;
-                        margin-bottom: 1vw;
-                        letter-spacing: 0.1vw;
+                    .dt{
+                        text-align: center;
 
-                        opacity: 0;
+                        
+                        h4{
+                            margin: 0;
+                            font-size: 1.3vw;
+                            font-weight: 500;
+                            color: #fff;
+                            letter-spacing: 0.3vw;
+                        }
+                        p{
+                            margin: 0;
+                            color: #fff;
+                            font-size: 0.9vw;
+                            margin-top: 0.2vw;
+                            margin-bottom: 1vw;
+                            letter-spacing: 0.1vw;
+                        }
+    
+                        .adv_icon{
+                            width: 30px;
+                            transform: rotate(180deg);
+
+                        }
+
                     }
 
-                    .adv_icon{
-                        width: 30px;
-                        opacity: 0;
-                        transform: rotate(180deg);
-                    }
+                    
                 }
 
                 &:nth-of-type(1){
@@ -804,6 +858,194 @@
         }
         
         
+    }
+}
+
+.index5{
+    background-color: #021A35;
+
+    .buy_car{
+        position: relative;
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+
+        .img_box{
+            position: absolute;
+            overflow: hidden;
+            width: 85%;
+            top: 3vw;
+        }
+
+        .txt_box{
+
+            .phone_clock{
+                background-color: $blue_color;
+                text-align: right;
+                padding: 10vw 4vw 14.7vw 4vw;
+                h2{
+                    color: #fff;
+                    margin: 0;
+                    margin-bottom: 1vw;
+                    font-size: 2.5vw;
+                    letter-spacing: 0.1vw;
+                    font-family: Gotham_Bold_Italic;
+                    justify-content: flex-end;
+                    
+                    img{
+                        width: 2.3vw;
+                        margin-right: 1vw;
+                    }
+                }
+                span{
+                    color: #fff;
+                    font-family: Gotham_Book_Italic;
+                    font-size: 2vw;
+                }
+            }
+            .reserve{
+                background-color: #fff;
+                text-align: right;
+                padding:3vw 4vw;
+
+                a{
+                    display: inline-block;
+                    text-decoration: none;
+                    text-align: center;
+                    h2{
+                        margin: 0;
+                        color: $blue_color;
+                        font-size: 2.2vw;
+                        letter-spacing: 0.2vw;
+                        margin-bottom: 1vw;
+                    }
+                    svg{
+                        width: 4.5vw;
+                        .cls-1{
+                            fill:none;
+                            stroke:$blue_color;
+                            stroke-miterlimit:10;
+                            stroke-width:3px;
+                        }
+
+                        .line-1{
+                            fill:none;
+                            stroke:$blue_color;
+                            stroke-linecap:round;
+                            stroke-linejoin:round;
+                            stroke-width:3.94px;
+                            transition: all 0.5s;
+
+                            &:nth-of-type(1){
+                                transform: translateX(0px);
+                            }
+                            &:nth-of-type(2){
+                                transform: translateX(0px);
+                                opacity: 0;
+                            }
+                            &:nth-of-type(3){
+                                transform: translateX(0px);
+                                opacity: 0;
+                            }
+                           
+                        }
+                    }
+
+                    &.active{
+                        svg{
+                            .line-1{
+                                &:nth-of-type(1){
+                                    transform: translateX(15px);
+                                }
+                                &:nth-of-type(2){
+                                    transform: translateX(0px);
+                                    opacity: 1;
+                                }
+                                &:nth-of-type(3){
+                                    transform: translateX(-15px);
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+.index6{
+    .contact_us{
+        .form_box{
+            position: relative;
+            flex: 1 1 50%;
+            padding: 3vw 7vw 5vw 10vw;
+            box-sizing: border-box;
+            h1{
+                margin: 0;
+                font-size: 2.5vw;
+                font-weight: 800;
+                line-height: 1.2;
+            }
+            p{
+                margin: 0;
+                font-size: .65vw;
+                letter-spacing: .1vw;
+            }
+            form{
+                flex-direction: column;
+                margin-top: 4vw;
+                input, textarea{
+                    padding: .5vw;
+                    border-radius: 0;
+                    border: 1px solid #ccc;
+                    margin-bottom: 1.2vw;
+                    font-weight: 800;
+                    font-size: 15px;
+                    letter-spacing: 1px;
+                    outline: none;
+                    background: none;
+                }
+                
+            }
+            .submit_btn{
+                background-color: $blue_color;
+                width: 75px;
+                height: 70px;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                svg{
+                    width: 30%;
+                    .cls-1{
+                        fill:#fff;
+                    }
+                }
+                
+            }
+            .bg_mail{
+                width: 75%;
+                position: absolute;
+                top: -19%;
+                right: -18%;
+                z-index: -1;
+
+                .cls-1{
+                    fill:#e8eaec;
+                }
+            }
+            .blue_square{
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                width: 15%;
+                height: 100%;
+                background-color: $blue_color;
+                clip-path: polygon(0 0, 15% 0, 100% 100%, 0 100%);
+            }
+        }
+        .map_box{
+            flex: 1 1 50%;
+        }
     }
 }
 
