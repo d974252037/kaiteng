@@ -59,6 +59,74 @@ body{
 
 }
 
+footer{
+    padding: 3vw 6vw;
+    background-image: url(../img/1x/footer_bg-100.jpg);
+    background-size: cover;
+
+    .logo_item{
+        flex: 1 1 50%;
+
+        .logo_box{
+            flex: 1 0 30%;
+        }
+
+        .item_box{
+            flex: 1 1 70%;
+            margin-left: 2vw;
+            a{
+                color: #fff;
+                padding:  1vw;
+                font-size: 0.9vw;
+                letter-spacing: 0.1vw;
+                font-weight: 100;
+                text-decoration: none;
+            }
+        }
+
+    }
+
+    .share_box{
+        flex: 1 1 50%;
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        a{
+            padding: 0.5vw 1vw;
+            img{
+                height: 1.1vw;
+                width: auto;
+            }
+
+            //-- yt --
+            &:nth-last-of-type(1){
+                img{
+                    height: 1vw;
+                }
+            }
+            &:nth-last-of-type(2){
+                img{
+                    height: 1.3vw;
+                }
+            }
+            &:nth-last-of-type(3){
+                img{
+                    height: 1.3vw;
+                }
+            }
+            //-- fb --
+            &:nth-last-of-type(4){
+                img{
+                    height: 1.4vw;
+                }
+            }
+        }
+    }
+}
+
 .w-100{
     display: block;
     width: 100%;
@@ -81,6 +149,35 @@ body{
     &.flex-column{
         flex-direction:column;
     }
+}
+
+.loading_div{
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   background-color: #021a35; 
+   flex-direction: column;
+   z-index: 100;
+   transition: all 2s;
+   clip-path: polygon(0 0, 100% 0, 120% 100%, 0 100%);
+
+   &.close{
+    clip-path: polygon(0 0, 0% 0, -30% 100%, 0 100%);
+   }
+
+   .logo_div{
+     margin-bottom: 1vw;
+     overflow: hidden;
+     img{ transform: translateY(100%);}
+   }
+   .spinner_div{
+      overflow: hidden;
+      img{
+        width: 35%;
+        transform: translateX(500px) skewX(50deg);
+        animation: car_move 2.5s ease-in-out 0.5s infinite normal;
+      }
+   }
 }
 
 .menu{
@@ -175,4 +272,92 @@ body{
         left: 0px;
     }
     
+}
+
+
+//## 右上角粉專按鈕 ##
+.top_logo_div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 1.5vw;
+    width: 100%;
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+
+    .img_box{
+        overflow: hidden;
+        img{
+            width: 16vw;
+        }
+    }
+
+    .share_box{
+        position: absolute;
+        right: 2vw;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        &.fixed_share_box{
+            position: fixed;
+            flex-direction: column;
+            top: 1vw;
+            right: 1vw;
+
+            a{
+                filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.4));
+            }
+        }
+
+        a{
+            padding: 0.5vw 0.4vw;
+            img{
+                height: 1.1vw;
+                width: auto;
+            }
+
+            //-- yt --
+            &:nth-last-of-type(1){
+                img{
+                    height: 1vw;
+                }
+            }
+            &:nth-last-of-type(2){
+                img{
+                    height: 1.3vw;
+                }
+            }
+            &:nth-last-of-type(3){
+                img{
+                    height: 1.3vw;
+                }
+            }
+            //-- fb --
+            &:nth-last-of-type(4){
+                img{
+                    height: 1.4vw;
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes car_move {
+    0%{
+        transform: translateX(500px) skewX(80deg);
+    }
+    30%{
+        transform: translateX(100px) skewX(0deg);
+    }
+    70%{
+        transform: translateX(120px) skewX(0deg);
+    }
+    100%{
+        transform: translateX(-500px) skewX(-80deg);
+    }
 }

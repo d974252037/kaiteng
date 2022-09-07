@@ -1,7 +1,26 @@
 $(document).ready(function () {
 
+    let loading_tl=gsap.timeline({delay:0.4});
+        loading_tl.to('.loading_div .logo_div img', 0.5, {y: 0});
+
+    setTimeout(() => {
+        $('.loading_div').addClass('close');
+
+        //-- top LOGO 動態 --
+        let top_tl = gsap.timeline({delay:0.5});
+        top_tl.from('.top_logo_div .img_box img', 1, {y:100});
+        $.each($('.top_logo_div .share_box a'), function (index, valueOfElement) { 
+            top_tl.from($(this).find('img'), 1, {y:50}, '<0.2');
+        });
+
+    }, 2000);
+
+
+
     //-- 滾動監聽 --
     let menu_top =$('.menu').offset().top;
+    //## 右上角粉專按鈕 ##
+    let shear_top =$('.top_logo_div .share_box').offset().top;
 
     $(window).bind('scroll resize', function() {
 
@@ -12,7 +31,16 @@ $(document).ready(function () {
         else{
             $('.menu').removeClass('fixed_menu');
         }
+
+        if(shear_top<=beforeTop){
+            $('.top_logo_div .share_box').addClass('fixed_share_box');
+        }
+        else{
+            $('.top_logo_div .share_box').removeClass('fixed_share_box');
+        }
     });
+
+
 
     //-- menu --
     $('.btn_box .hamburger').click(function (e) { 
@@ -22,7 +50,7 @@ $(document).ready(function () {
         if($(this).hasClass('is-active')){
             $(this).removeClass('is-active');
             tl.to($('.menu .list_box'), 0.5, {opacity: 0, x:-40});
-            tl.to($('.menu .list_box'), 0.1, {visibility:'hidden'}, '<0.5');
+            tl.to($('.menu .list_box'), 0.1, {visibility:'hidden'}, '<0.2');
             tl.to($('.menu '), 1, { width: '8%'}, '-=0.3');
         }
         else{
@@ -32,8 +60,6 @@ $(document).ready(function () {
             tl.to($('.menu .list_box'), 0.5, {opacity: 1, x:0, visibility:'visible'}, '<0.4');
         }
     });
-
-
     //-- menu拆字 --
     $.each($('.menu .list_box a>span'), function (index, valueOfElement) { 
        let _this=$(this);
@@ -62,4 +88,10 @@ $(document).ready(function () {
         tl_mu.addLabel("start");
         tl_mu.to($(this).find('.a_line'), 0.3, {width: '0%'}, 'start');
     });
+
+    
 });
+
+// $(window).on('load', function () {
+//     $('.loading_div').addClass('close');
+// });
