@@ -405,7 +405,7 @@
                     .svg_ic{
                         display: inline-block;
                         position: relative;
-                        width: 75px;
+                        width: 4vw;
                         
                         .arrow{
                             transition: all 0.5s;
@@ -841,13 +841,20 @@
         clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
 
         .img_box{
-            position: absolute;
+            position: relative;
+            z-index: 15;
             overflow: hidden;
             width: 85%;
-            top: 3vw;
+            padding-top: 3vw;
         }
 
         .txt_box{
+
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            width: 100%;
 
             .phone_clock{
                 background-color: $blue_color;
@@ -861,10 +868,16 @@
                     letter-spacing: 0.1vw;
                     font-family: Gotham_Bold_Italic;
                     justify-content: flex-end;
+                    overflow: hidden;
                     
                     img{
                         width: 2.3vw;
                         margin-right: 1vw;
+                    }
+
+                    &.area{
+                        margin: 0;
+                        font-size: 2.2vw;
                     }
                 }
                 span{
@@ -1017,6 +1030,18 @@
         }
         .map_box{
             flex: 1 1 50%;
+
+            a{
+                display: block;
+                width: 100%;
+                height: 100%;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
         }
     }
 }

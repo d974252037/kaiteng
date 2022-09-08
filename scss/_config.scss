@@ -16,7 +16,7 @@
 }
 @font-face {
     font-family: Gotham_Bold_Italic;
-    src: url("font/GothamBoldItalic.ttf") format("truetype");
+    src: url("font/Gotham-BoldItalic.otf") format("opentype");
 }
 @font-face {
     font-family: Gotham_Book_Italic;
@@ -69,11 +69,13 @@ footer{
 
         .logo_box{
             flex: 1 0 30%;
+            overflow: hidden;
         }
 
         .item_box{
             flex: 1 1 70%;
             margin-left: 2vw;
+            overflow: hidden;
             a{
                 color: #fff;
                 padding:  1vw;
@@ -93,6 +95,7 @@ footer{
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        overflow: hidden;
 
         a{
             padding: 0.5vw 1vw;
@@ -130,6 +133,10 @@ footer{
 .w-100{
     display: block;
     width: 100%;
+}
+
+.overflow_h{
+    overflow: hidden;
 }
 
 .flex-box{
@@ -217,7 +224,7 @@ footer{
         a{
             text-decoration: none;
             color: #fff;
-            font-size: 16px;
+            font-size: 0.95vw;
             letter-spacing: 3px;
             line-height: 1;
             padding: 2vw;

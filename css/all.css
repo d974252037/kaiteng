@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: Gotham_Bold_Italic;
-  src: url("font/GothamBoldItalic.ttf") format("truetype");
+  src: url("font/Gotham-BoldItalic.otf") format("opentype");
 }
 @font-face {
   font-family: Gotham_Book_Italic;
@@ -48,10 +48,12 @@ footer .logo_item {
 }
 footer .logo_item .logo_box {
   flex: 1 0 30%;
+  overflow: hidden;
 }
 footer .logo_item .item_box {
   flex: 1 1 70%;
   margin-left: 2vw;
+  overflow: hidden;
 }
 footer .logo_item .item_box a {
   color: #fff;
@@ -67,6 +69,7 @@ footer .share_box {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  overflow: hidden;
 }
 footer .share_box a {
   padding: 0.5vw 1vw;
@@ -91,6 +94,10 @@ footer .share_box a:nth-last-of-type(4) img {
 .w-100 {
   display: block;
   width: 100%;
+}
+
+.overflow_h {
+  overflow: hidden;
 }
 
 .flex-box {
@@ -176,7 +183,7 @@ footer .share_box a:nth-last-of-type(4) img {
 .menu .list_box a {
   text-decoration: none;
   color: #fff;
-  font-size: 16px;
+  font-size: 0.95vw;
   letter-spacing: 3px;
   line-height: 1;
   padding: 2vw;
@@ -638,7 +645,7 @@ footer .share_box a:nth-last-of-type(4) img {
 .index3 .hotcar .txt_box .btn_box a .svg_ic {
   display: inline-block;
   position: relative;
-  width: 75px;
+  width: 4vw;
 }
 .index3 .hotcar .txt_box .btn_box a .svg_ic .arrow {
   transition: all 0.5s;
@@ -996,10 +1003,18 @@ footer .share_box a:nth-last-of-type(4) img {
           clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
 }
 .index5 .buy_car .img_box {
-  position: absolute;
+  position: relative;
+  z-index: 15;
   overflow: hidden;
   width: 85%;
-  top: 3vw;
+  padding-top: 3vw;
+}
+.index5 .buy_car .txt_box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 100%;
 }
 .index5 .buy_car .txt_box .phone_clock {
   background-color: #0080C5;
@@ -1014,10 +1029,15 @@ footer .share_box a:nth-last-of-type(4) img {
   letter-spacing: 0.1vw;
   font-family: Gotham_Bold_Italic;
   justify-content: flex-end;
+  overflow: hidden;
 }
 .index5 .buy_car .txt_box .phone_clock h2 img {
   width: 2.3vw;
   margin-right: 1vw;
+}
+.index5 .buy_car .txt_box .phone_clock h2.area {
+  margin: 0;
+  font-size: 2.2vw;
 }
 .index5 .buy_car .txt_box .phone_clock span {
   color: #fff;
@@ -1149,6 +1169,17 @@ footer .share_box a:nth-last-of-type(4) img {
 }
 .index6 .contact_us .map_box {
   flex: 1 1 50%;
+}
+.index6 .contact_us .map_box a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.index6 .contact_us .map_box a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @-webkit-keyframes bg_mv {

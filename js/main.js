@@ -90,6 +90,29 @@ $(document).ready(function () {
     });
 
     
+
+    //---------------- Footer 動態 ---------------------
+    let footer_tl=gsap.timeline({
+        scrollTrigger: {
+            trigger: "footer",
+            //once:true, // 執行1次
+            //pin: true,   // 固定畫面
+            start: "top bottom", // 開始位置
+            end: "top bottom", // 結束位移距離
+            //scrub: 3, // 延遲動態進程(滑順效果)
+            //markers:true, // 標註開始，結束位置
+        }
+    });
+
+    footer_tl.from('footer .logo_item .logo_box img', 1.5, {y:'100%'});
+
+    $.each($('footer .logo_item .item_box a'), function (index, valueOfElement) { 
+        footer_tl.from($(this), 1.5, {y:'100%'}, '<0.1');
+    });
+
+    $.each($('footer .share_box a'), function (index, valueOfElement) { 
+        footer_tl.from($(this), 1.5, {y:'100%'}, '<0.1');
+    });
 });
 
 // $(window).on('load', function () {

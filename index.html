@@ -184,9 +184,9 @@
     <section class="index2">
         <div class="swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="img/1x/slider1-100.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="img/1x/slider1-100.jpg" alt=""></div>
-                <div class="swiper-slide"><img src="img/1x/slider1-100.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="w-100" src="img/1x/slider1-100.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="w-100" src="img/1x/slider1-100.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="w-100" src="img/1x/slider1-100.jpg" alt=""></div>
             </div>
             <!-- 如果需要分页器 -->
             <div class="swiper-pagination"></div>
@@ -434,9 +434,15 @@
            </div>
            <div class="txt_box">
               <div class="phone_clock">
-                <span>(04)</span>
-                <h2 class="en flex-box i-center"><img src="img/SVG/phone.svg" alt=""> 2389-8891</h2>
-                <h2 class="en flex-box i-center"><img src="img/SVG/clock.svg" alt=""> 9:00-18:00</h2>
+                <div class="overflow_h">
+                    <h2 class="en area">(04)</h2>
+                </div>
+                <div class="overflow_h">
+                    <h2 class="en flex-box i-center"><img src="img/SVG/new-phone.gif" alt=""> 2389-8891</h2>
+                </div>
+                <div class="overflow_h">
+                    <h2 class="en flex-box i-center"><img src="img/SVG/clock.svg" alt=""> 9:00-18:00</h2>
+                </div>
               </div>
               <div class="reserve">
                 <a href="#">
@@ -677,10 +683,85 @@
 
             $.each($('.index3 .hotcar .car_list .item'), function (index, valueOfElement) { 
                 hotcar_tl.from($(this).find('.mv_square'), 0.8, {x:'100%'}, '<0.1');
-                hotcar_tl.from($(this).find('a img'), 0.1, {opacity:0}, '<0.8');
-                hotcar_tl.to($(this).find('.mv_square'), 0.8, {x:'-100%'}, '-=0.8');
+                hotcar_tl.to($(this).find('.mv_square'), 0.8, {x:'-100%'}, '<0.1');
+                hotcar_tl.from($(this).find('a img'), 0.8, {opacity:0}, '<0.1');
             });
-            
+
+            let search_tl=gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".index3 .search_car",
+                    //once:true, // 執行1次
+                    //pin: true,   // 固定畫面
+                    start: "top center", // 開始位置
+                    end: "top center", // 結束位移距離
+                    //scrub: 5, // 延遲動態進程(滑順效果)
+                    //markers:true, // 標註開始，結束位置
+                }
+            });
+
+            search_tl.from('.index3 .search_car .search_box .sel_div', 1, {y:'80%'})
+                     .from('.index3 .search_car .search_box .btn_box a', 1, {y:'80%'}, '<0.2');
+
+            //------------ 熱賣推薦好車 END --------------
+
+
+
+            //-------------------- 凱騰服務優勢 ---------------------
+            let advantage_tl=gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".index4 .advantage",
+                    //once:true, // 執行1次
+                    //pin: true,   // 固定畫面
+                    start: "top bottom", // 開始位置
+                    end: "bottom bottom", // 結束位移距離
+                    scrub: 3, // 延遲動態進程(滑順效果)
+                    //markers:true, // 標註開始，結束位置
+                }
+            });
+
+            $.each($('.index4 .advantage .item_box .adv_item'), function (index, valueOfElement) { 
+                advantage_tl.from($(this), 1.5, {y:'100%'}, '<0.2');
+            });
+
+            //-------------------- 凱騰服務優勢 END ---------------------
+
+
+
+            //------------- 電話時間 ----------------
+            let phone_time_tl=gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".index5 .buy_car",
+                    //once:true, // 執行1次
+                    //pin: true,   // 固定畫面
+                    start: "top center", // 開始位置
+                    end: "top center", // 結束位移距離
+                    //scrub: 3, // 延遲動態進程(滑順效果)
+                    //markers:true, // 標註開始，結束位置
+                }
+            });
+
+            phone_time_tl.from('.index5 .buy_car .txt_box .phone_clock .overflow_h h2.area', 1, {y: '150%'})
+                         .from('.index5 .buy_car .txt_box .phone_clock .overflow_h:nth-of-type(2) h2', 1, {y: '150%'}, '<0.2')
+                         .from('.index5 .buy_car .txt_box .phone_clock .overflow_h:nth-of-type(3) h2', 1, {y: '150%'}, '<0.2');
+
+            //------------- 電話時間 END ----------------
+
+
+            let maill_tl=gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".index6 .contact_us ",
+                    //once:true, // 執行1次
+                    //pin: true,   // 固定畫面
+                    start: "top bottom", // 開始位置
+                    end: "bottom bottom", // 結束位移距離
+                    scrub: 3, // 延遲動態進程(滑順效果)
+                    //markers:true, // 標註開始，結束位置
+                }
+            });
+
+            maill_tl.from('.index6 .contact_us .form_box .bg_mail', 1.5, {y: '-50%'});
+
+
         });
 
     </script>
